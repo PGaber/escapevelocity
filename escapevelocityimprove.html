@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>escapevelo-chatgpt</title>
+  <link rel=stylesheet href="escapevelo.css">
+</head>
+<body>
+  <h2>Escape Velocity Calculator</h2>
+  <p class="description">Enter the mass (kg) and a radius (m) of a celestial body in a scientific notation.</p>
+  <div class="interactive">
+    <div class="inputs">
+      <div class="mass-input">
+        Mass:
+        <div class="mass-inputs">
+          <input class="mass-number-input" placeholder="Coefficient">
+          <p class="times-exponent">* 10^</p>
+          <input class="mass-exponent-input" placeholder="Exponent">
+        </div>
+      </div>
+      <div class="radius-input">
+        Radius:
+        <div class="radius-inputs">
+          <input class="radius-number-input" placeholder="Coefficient">
+          <p class="times-exponent">* 10^</p>
+          <input class="radius-exponent-input" placeholder="Exponent">
+        </div>
+      </div>
+    </div>
+    <button onclick="
+      getMassAndRadius();
+    " class="enter-button">Enter</button>
+  </div>
+  
+  <div class="js-escape-velo result"></div>
+  <script src="escapevelo.js"></script>
+</body>
+</html>

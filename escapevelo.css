@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+.roboto-regular{
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.roboto-medium{
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+.roboto-bold{
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+body{
+  font-family: Roboto;
+  margin: 20px;
+}
+.radius-input, .mass-input{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 250px;
+}
+.mass-inputs, .radius-inputs{
+  display: flex;
+  height: 30px;
+  align-items: center;
+}
+.times-exponent{
+  margin-left: 5px;
+}
+.mass-number-input, .radius-number-input{
+  width: 72px;
+}
+.mass-exponent-input, .radius-exponent-input{
+  width: 62px;
+}
+.interactive{
+  display: flex;
+  align-items: center;
+}
+.enter-button{
+  color: white;
+  background-color: green;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin-left: 10px;
+  font-family: Roboto;
+}
+.description{
+  margin-bottom: 8px;
+}
+.inputs input::placeholder{
+  font-family: Roboto;
+}
+.inputs input{
+  font-family: Roboto;
+  height: 20px;
+  font-size: 0.93rem;
+}
+.result{
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+h2{
+  margin: 5px auto 5px auto;
+}
