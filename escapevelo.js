@@ -1,31 +1,41 @@
 function getMassAndRadius() {
-  const mass = document.querySelector('.mass-number-input');
-  let massCoefficientValue = parseFloat(mass.value);
+  const resultElement = document.querySelector('.js-escape-velo');
 
-  const massExponent = document.querySelector('.mass-exponent-input');
-  let massExponentValue = parseFloat(massExponent.value);
+  const massCoefficientValue = parseFloat(document.querySelector('.mass-number-input').value.trim());
+  const massExponentValue = parseFloat(document.querySelector('.mass-exponent-input').value.trim());
+  const radiusCoefficientValue = parseFloat(document.querySelector('.radius-number-input').value.trim());
+  const radiusExponentValue = parseFloat(document.querySelector('.radius-exponent-input').value.trim());
 
-  const radius = document.querySelector('.radius-number-input');
-  let radiusCoefficientValue = parseFloat(radius.value);
-
-  const radiusExponent = document.querySelector('.radius-exponent-input');
-  let radiusExponentValue = parseFloat(radiusExponent.value);
-  
-  if (!isNaN(massCoefficientValue) && !isNaN(massExponentValue)
-  && !isNaN(radiusCoefficientValue) && !isNaN(radiusExponentValue)) {
-    const massValue = Number(massCoefficientValue*(10**massExponentValue));
-    const radiusValue = Number(radiusCoefficientValue*(10**radiusExponentValue));
-    calculateEscapeVelocity(massValue, radiusValue);
-  } else {
-    document.querySelector('.js-escape-velo')
-    .innerHTML = `Please Enter a number!`;
+  if (isNaN(massCoefficientValue) || isNaN(massExponentValue) ||
+      isNaN(radiusCoefficientValue) || isNaN(radiusExponentValue)) {
+    resultElement.innerHTML = `Please enter valid numbers in all fields!`;
+    return;
   }
+
+  if (massCoefficientValue <= 0 || radiusCoefficientValue <= 0) {
+    resultElement.innerHTML = `Please enter positive numbers only!`;
+    return;
+  }
+
+  const massValue = massCoefficientValue*(10**massExponentValue);
+  const radiusValue = radiusCoefficientValue*(10**radiusExponentValue);
+
+  calculateEscapeVelocity(massValue, radiusValue);
 }
 function calculateEscapeVelocity(m, r) {
+  const resultElement = document.querySelector('.js-escape-velo');
+
+  resultElement.innerHTML = `Calculating...`;
   const g = 6.674*10**(-11);
   let escapeVelocity = Math.sqrt((2*g*m)/r);
-  escapeVelocity = Math.round(escapeVelocity*100);
-  escapeVelocity = escapeVelocity/100;
-  document.querySelector('.js-escape-velo')
-    .innerHTML = `The approximate escape velocity of the object is ${escapeVelocity} m/s`;
+  escapeVelocity = escapeVelocity.toFixed(2);
+  resultElement.innerHTML = `The approximate escape velocity of the object is ${escapeVelocity} m/s`;
+}
+
+function clearInput() {
+  document.querySelector('.mass-number-input').value = '';
+  document.querySelector('.mass-exponent-input').value = '';
+  document.querySelector('.radius-number-input').value = '';
+  document.querySelector('.radius-exponent-input').value = '';
+  document.querySelector('.js-escape-velo').innerHTML = '';
 }
